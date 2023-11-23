@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ingreso a la página</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    form {
+      max-width: 300px;
+      margin: 0 auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      background-color: #f9f9f9;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    input[type="text"],
+    button {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 15px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+
+    button {
+      background-color: #007bff;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    #mensaje {
+      margin-top: 20px;
+      padding: 10px;
+      text-align: center;
+      color: #ff0000;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Ingresar a la página</h1>
+  
+  <form id="ingresoForm" onsubmit="validarIngreso(); return false;">
+    <label for="dni">DNI:</label>
+    <input type="text" id="dni" name="dni" maxlength="8" required>
+    <button type="submit">Ingresar</button>
+  </form>
+
+  <div id="mensaje"></div>
+
+  <script>
+    function validarIngreso() {
+      var dniInput = document.getElementById('dni');
+      var dni = dniInput.value.trim();
+
+      if (!/^\d{8}$/.test(dni)) {
+        mostrarMensaje('El DNI debe contener 8 dígitos numéricos.');
+        return;
+      }
+
+      // Redirigir a solicitud.html si el DNI es válido
+      window.location.href = 'intermedio.html';
+    }
+
+    function mostrarMensaje(mensaje) {
+      var mensajeDiv = document.getElementById('mensaje');
+      mensajeDiv.innerText = mensaje;
+      mensajeDiv.style.display = 'block';
+    }
+  </script>
+
+</body>
+</html>

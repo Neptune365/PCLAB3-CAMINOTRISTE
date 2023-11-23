@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Consultar Estado de Solicitud</title>
+  <style>
+    /* Estilos CSS */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    table {
+      width: 60%;
+      margin: 30px auto;
+      border-collapse: collapse;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    th, td {
+      padding: 10px;
+      border: 1px solid #ccc;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+
+    /* Estilo para el estado "En observación" */
+    td#estado.color {
+      color: white;
+      background-color: orange;
+    }
+
+    button {
+      display: block;
+      margin: 20px auto; /* Centra horizontalmente */
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 5px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Consultar Estado de Solicitud Enviada</h1>
+
+  <table>
+    <tr>
+      <th>Nombre</th>
+      <th>Apellido Paterno</th>
+      <th>Apellido Materno</th>
+      <th>Fecha de Nacimiento</th>
+      <th>DNI</th>
+      <th>Foto</th>
+      <th>Título profesional Adjuntado</th>
+      <th>Fecha de Solicitud</th>
+      <th>Estado</th>
+    </tr>
+    <tr>
+      <td id="nombre">Luis</td>
+      <td id="apellidoPaterno">Sánchez</td>
+      <td id="apellidoMaterno">Boy</td>
+      <td id="fechaNacimiento">01/01/1990</td>
+      <td id="dni">12345678</td>
+      <td id="foto">foto.jpg</td>
+      <td id="tituloAdjuntado">titulo.pdf</td>
+      <td id="fechaSolicitud">01/11/2023</td>
+      <td id="estado" class="color">En observación</td>
+    </tr>
+  </table>
+
+  <button onclick="window.location.href = 'modificar.html'">Modificar Solicitud Enviada</button>
+
+  <script>
+    // Suponiendo que tienes un objeto con los detalles de la solicitud (código omitido por brevedad)
+
+    // Función para mostrar la información de la solicitud (código omitido por brevedad)
+  </script>
+
+</body>
+</html>

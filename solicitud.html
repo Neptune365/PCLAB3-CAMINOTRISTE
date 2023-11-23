@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Generar Solicitud</title>
+  <style>
+    /* Estilos CSS */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    
+    h1 {
+      text-align: center;
+    }
+    
+    form {
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      background-color: #f9f9f9;
+    }
+    
+    label {
+      display: block;
+      margin-bottom: 8px;
+    }
+    
+    input[type="text"],
+    input[type="file"],
+    button,
+    input[type="date"] {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 15px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+      font-size: 16px;
+    }
+    
+    input[type="file"] {
+      padding-top: 5px;
+    }
+    
+    button {
+      background-color: #007bff;
+      color: white;
+      cursor: pointer;
+    }
+    
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    /* Estilos para la ventana modal */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.4);
+    }
+
+    .modal-content {
+      background-color: #fefefe;
+      margin: 15% auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%;
+      border-radius: 5px;
+    }
+
+    .modal-content p {
+      margin-bottom: 15px;
+    }
+
+    .modal-content button {
+      background-color: #007bff;
+      color: white;
+      padding: 8px 12px;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+
+    .modal-content button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Generar Solicitud</h1>
+  
+  <form id="solicitudForm" onsubmit="return validarFormulario()">
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" name="nombre" pattern="[A-Za-zÁ-Úá-úÑñ\s]+" title="Ingrese solo letras (sin números ni caracteres especiales)" required>
+    
+    <label for="apellidoPaterno">Apellido Paterno:</label>
+    <input type="text" id="apellidoPaterno" name="apellidoPaterno" pattern="[A-Za-zÁ-Úá-úÑñ\s]+" title="Ingrese solo letras (sin números ni caracteres especiales)" required>
+    
+    <label for="apellidoMaterno">Apellido Materno:</label>
+    <input type="text" id="apellidoMaterno" name="apellidoMaterno" pattern="[A-Za-zÁ-Úá-úÑñ\s]+" title="Ingrese solo letras (sin números ni caracteres especiales)" required>
+    
+    <label for="fechaNacimiento">Fecha de Nacimiento:</label>
+    <input type="date" id="fechaNacimiento" name="fechaNacimiento" required>
+
+    <label for="foto">Adjuntar foto (PNG o JPEG):</label>
+    <input type="file" id="foto" name="foto" accept=".png, .jpeg, .jpg" required>
+
+    <label for="titulo">Adjuntar Título Profesional (PDF o Word):</label>
+    <input type="file" id="titulo" name="titulo" accept=".pdf,.doc,.docx" required>
+
+    <button type="submit">Generar nueva solicitud</button>
+  </form>
+
+  <!-- Ventana modal -->
+  <div id="myModal" class="modal">
+    <div class="modal-content">
+      <p>La solicitud ha sido enviada exitosamente</p>
+      <button onclick="confirmarEnvio()">Aceptar</button>
+    </div>
+  </div>
+
+  <script>
+    function validarFormulario() {
+      var fechaNacimiento = document.getElementById('fechaNacimiento').value;
+      var nombre = document.getElementById('nombre').value;
+      var apellidoPaterno = document.getElementById('apellidoPaterno').value;
+      var apellidoMaterno = document.getElementById('apellidoMaterno').value;
+      var titulo = document.getElementById('titulo').value;
+      var foto = document.getElementById('foto').value;
+      
+      if (fechaNacimiento === '' || nombre === '' || apellidoPaterno === '' || apellidoMaterno === '' || titulo === '' || foto === '') {
+        alert('Por favor, complete todos los campos obligatorios.');
+        return false;
+      }
+      
+      document.getElementById('myModal').style.display = 'block';
+      return false;
+    }
+
+    function confirmarEnvio() {
+      window.location.href = 'intermedio.html';
+    }
+
+  </script>
+
+</body>
+</html>

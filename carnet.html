@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Carnet Digital de Colegiado</title>
+  <style>
+    /* Estilos CSS */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    #carnet {
+      width: 300px;
+      margin: 0 auto;
+      text-align: center; /* Centra horizontalmente el contenedor */
+    }
+
+    #carnet img {
+      display: block; /* Hace que la imagen sea un bloque */
+      margin: auto; /* Centra la imagen dentro del contenedor */
+      max-width: 100%; /* Ajusta la imagen al ancho del contenedor */
+    height: auto;
+    }
+
+    #mensaje {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    #mensajePago {
+      color: red;
+    }
+
+    button {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 5px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Ver Carnet Digital de Colegiado</h1>
+
+  <div id="mensaje">
+    <p id="mensajePago" style="display: block;">El pago aún no ha sido validado. No se puede mostrar el carnet.</p>
+  </div>
+
+  <script>
+    // Simulación: Verificar si el pago ha sido validado (true/false)
+    const pagoValidado = true; // Cambiar a false para simular que el pago no ha sido validado
+
+    if (!pagoValidado) {
+      document.getElementById('mensajePago').style.display = 'block';
+      document.getElementById('carnet').style.display = 'none';
+    }
+  </script>
+
+</body>
+</html>
